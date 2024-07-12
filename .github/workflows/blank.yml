@@ -2,7 +2,7 @@ name: Generate RULE-SET
 
 on:
   schedule:
-    - cron: '0 6 * * *' # 每天6 点运行
+    - cron: '0 6 * * *' # 每天早上 6 点运行
   workflow_dispatch: # 手动触发
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
         node-version: '14'
 
     - name: Download domain list
-      run: curl -o domains.txt https://big.oisd.nl/dnsmasq2
+      run: curl -o domains.txt https://example.com/domains.txt
 
     - name: Install dependencies
       run: npm install
@@ -30,10 +30,10 @@ jobs:
     - name: Commit and push changes
       run: |
         git config --global user.name 'Lycofuture'
-        git config --global user.email 'd342jxc@gmail.com'
+        git config --global user.email 'hizcmua@163.com'
+        git remote set-url origin https://Lycofuture:${{ secrets.GB_TOKEN }}@github.com/Lycofuture/AdGuard.git
         git add adblock_ruleset.txt
         git commit -m 'Update RULE-SET'
-        git push
+        git push origin HEAD:main
       env:
         GITHUB_TOKEN: ${{ secrets.GB_TOKEN }}
-        
