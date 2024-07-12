@@ -28,12 +28,12 @@ jobs:
       run: node generateRuleSet.js
 
     - name: Commit and push changes
+      env:
+        GITHUB_TOKEN: ${{ secrets.GB_TOKEN }}
       run: |
-        git config --global user.name 'Lycofuture'
-        git config --global user.email 'hizcmua@163.com'
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
         git remote set-url origin https://Lycofuture:${{ secrets.GB_TOKEN }}@github.com/Lycofuture/AdGuard.git
         git add adblock_ruleset.txt
         git commit -m 'Update RULE-SET'
         git push origin HEAD:main
-      env:
-        GITHUB_TOKEN: ${{ secrets.GB_TOKEN }}
