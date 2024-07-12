@@ -29,8 +29,8 @@ jobs:
 
     - name: Commit and push changes
       run: |
-        git config --global user.name 'Lycofuture'
-        git config --global user.email 'd342jxc@gmail.com'
+        git config --global user.name 'github-actions'
+        git config --global user.email 'github-actions@github.com'
         git add adblock_ruleset.txt
         git commit -m 'Update RULE-SET'
         git push
