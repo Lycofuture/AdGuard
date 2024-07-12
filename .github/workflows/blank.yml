@@ -19,7 +19,7 @@ jobs:
         node-version: '14'
 
     - name: Download domain list
-      run: curl -o domains.txt https://example.com/domains.txt
+      run: curl -o domains.txt https://big.oisd.nl/domainswild2
 
     - name: Install dependencies
       run: npm install
